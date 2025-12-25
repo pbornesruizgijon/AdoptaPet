@@ -1,0 +1,42 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AdoptaPet - Mascotas</title>
+    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/lista.css">
+</head>
+
+<body>
+    <div class="content mascota-list">
+        <h1
+            style="text-align:center; margin-bottom:18px; font-size:2.6em; font-weight:800; color:#6b4f23; text-shadow:0 1px 10px #fce9d2aa;">
+            Lista de mascotas para adopción
+        </h1>
+        <h2 style="text-align:center; margin-bottom:18px; font-size:1.3em; color:#7ed4a6; font-weight:500;">
+            Elige la mascota que quieres conocer o adoptar
+        </h2>
+
+        <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 20px;">
+            <a href="/lista?orden=nombre" class="principal-link" style="margin-right:14px;">Ordenar por nombre</a>
+            <a href="/lista?orden=edad" class="principal-link">Ordenar por edad</a>
+        </div>
+
+        <div class="mascota-grid">
+            <div class="mascota-card" th:each="m : ${mascotas}">
+                <a th:href="@{'/detalle/' + ${m.id}}" class="mascota-card-link" style="text-decoration: none;">
+                    <img th:src="@{'/img/' + ${m.imagen}}" alt="Foto de mascota" />
+                    <span class="mascota-nombre" th:text="${m.nombre}"></span>
+                    <span th:if="${m.adoptada}" class="adoptado">ADOPTADO</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align:center; margin-top:28px; margin-bottom: 30px;">
+        <a href="/" class="principal-link">Volver al inicio</a>
+    </div>
+</body>
+
+</html>

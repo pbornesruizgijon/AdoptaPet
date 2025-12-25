@@ -1,0 +1,49 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: adoptapet-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: toor      # root / toor
+      MYSQL_DATABASE: adoptapetdb
+      MYSQL_USER: adoptapet
+      MYSQL_PASSWORD: adoptapet
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - adoptapet-net
+
+  app:
+    image: adoptapet:latest
+    container_name: adoptapet-app
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/adoptapetdb
+      SPRING_DATASOURCE_USERNAME: adoptapet
+      SPRING_DATASOURCE_PASSWORD: adoptapet
+    ports:
+      - "8080:8080"
+    networks:
+      - adoptapet-net
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: adoptapet-phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: toor
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql
+    networks:
+      - adoptapet-net
+
+networks:
+  adoptapet-net:
+
+volumes:
+  mysql-data:

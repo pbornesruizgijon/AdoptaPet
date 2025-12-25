@@ -1,0 +1,99 @@
+body {
+    background: linear-gradient(90deg, #fde9d8 0%, #f9f5ec 15%, #f9f5ec 85%, #c3dae7 100%);
+}
+body::before, body::after {
+    content: "";
+    position: fixed;
+    top: 0; bottom: 0;
+    width: 110px;
+    z-index: 0;
+}
+body::before {
+    left: 0;
+    background: linear-gradient(to top, #fae2be 60%, #f5b971 100%);
+    border-top-right-radius: 70px;
+    border-bottom-right-radius: 160px;
+}
+body::after {
+    right: 0;
+    background: linear-gradient(to bottom, #c3dae7 40%, #7ed4a6 100%);
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 130px;
+}
+
+.content.mascota-list {
+  margin: 42px auto 0 auto;
+  max-width: 1200px;
+  background: none;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+  padding-top: 0px;
+}
+.mascota-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 42px;
+  justify-content: center;
+}
+.mascota-card img {
+  display: block;
+  width: 220px;
+  height: 220px;
+  border-radius: 20px;
+  object-fit: cover;
+  margin: 0 auto 18px auto; /* arriba, derecha, abajo, izquierda */
+  box-shadow: 0 4px 22px #c3dae7bb;
+}
+.mascota-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  border-radius: 18px;
+  transition: box-shadow 0.18s, background 0.18s;
+}
+.mascota-card-link:hover .mascota-card {
+  background: #ffe9c977; /* Fondo pastel más claro en hover */
+  box-shadow: 0 4px 22px #f5b97144;
+}
+.mascota-card-link:hover {
+  cursor: pointer;
+}
+
+.mascota-nombre {
+  font-weight: bold;
+  font-size: 1.29em;
+  color: #6b4f23;
+  text-align: center;
+  margin-bottom: 8px;
+  text-decoration: underline;
+  display: block;
+}
+.mascota-card .adoptado {
+  background: #f5b97199;
+  color: #363434;
+  font-weight: bold;
+  padding: 5px 18px;
+  border-radius: 11px;
+  margin: 16px auto 0 auto; /* auto centra horizontalmente */
+  font-size: 1em;
+  display: block; /* ocupa todo el ancho posible */
+  text-align: center; /* centra el texto */
+  max-width: 170px; /* opcional, para que no se estire mucho */
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 18px;
+  font-size: 2.6em;
+  font-weight: 800;
+  color: #6b4f23;
+  text-shadow: 0 1px 10px #fce9d2aa;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 18px;
+  font-size: 1.3em;
+  color: #7ed4a6;
+  font-weight: 500;
+}

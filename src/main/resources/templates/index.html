@@ -1,0 +1,46 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AdoptaPet - Inicio</title>
+    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+    <div class="hero">
+        <div class="herotitle">AdoptaPet</div>
+    </div>
+    <div class="content login-card">
+        <div th:if="${!#strings.isEmpty(aliasCookie)}">
+            <p>
+                Bienvenido de nuevo: <strong th:text="${aliasCookie}"></strong>
+                <form action="/logout" method="post" style="display:inline;">
+                    <button type="submit" class="logout-btn">Cerrar sesión</button>
+                </form>
+            </p>
+        </div>
+        <div th:if="${#strings.isEmpty(aliasCookie)}">
+            <p class="bienvenida">
+                ¡Bienvenido a <strong>AdoptaPet</strong>!<br>
+                Por favor, introduzca su nombre para continuar
+            </p>
+            <form action="/setUsuario" method="post" style="margin-bottom: 24px;">
+                <label for="usuario">Tu nombre:</label>
+                <input id="usuario" name="usuario" th:value="${usuario}" />
+                <button type="submit">Entrar</button>
+            </form>
+            <p th:if="${error}" th:text="${error}" class="error"></p>
+        </div>
+        <hr style="margin:26px auto 12px auto; width:80%; border:0; border-top:1.5px solid #eee;">
+        <a href="/lista" class="principal-link" style="width:100%;">Ver mascotas disponibles</a>
+    </div>
+    <div class="stats">
+        <h3 style="margin-top:18px;">
+            Total adoptadas: <span th:text="${totalAdoptadas}">0</span>
+        </h3>
+    </div>
+</body>
+
+</html>
