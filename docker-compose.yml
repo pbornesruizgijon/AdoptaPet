@@ -1,3 +1,5 @@
+#usar para montar en docker -> docker compose up -d
+
 services:
   mysql:
     image: mysql:8.0

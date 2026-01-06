@@ -1,5 +1,5 @@
 INSERT INTO adopter (nombre, email, telefono)
-VALUES ('Pedro Bornes', 'pedro@gmail.com', '622123952');
+VALUES ('Pedro', 'pedro@gmail.com', '622123952');
 
 INSERT INTO mascota (nombre, edad, raza, sexo, descripcion, adoptada, imagen, adopter_id) VALUES
 ('Rex', 0, 'Pastor Alemán', 'Macho', 'Activo y juguetón', false, '1_pastor_aleman.jpg', NULL),
