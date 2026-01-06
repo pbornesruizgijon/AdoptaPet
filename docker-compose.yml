@@ -1,4 +1,7 @@
-#usar para montar en docker -> docker compose up -d
+#MONTAR EN DOCKER
+#RUTA: "C:\DAW CLASE\2DAW\Optativa\adoptapet>" 
+#COMANDO: docker build -t adoptapet:latest .     
+#LEVANTAR CONTENEDOR: docker compose up -d
 
 services:
   mysql:
